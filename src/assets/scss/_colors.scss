@@ -1,0 +1,23 @@
+$palettes: (
+  common: (
+    default: #2b303a,
+    primary: #111317,
+    secondary: #7a818e,
+    secondary-light: #e9edf4,
+    white: #ffffff,
+  ),
+);
+
+@function color($color, $tone) {
+  @if map-has-key($palettes, $color) {
+    $color: map-get($palettes, $color);
+    @if map-has-key($color, $tone) {
+      $tone: map-get($color, $tone);
+      @return $tone;
+    }
+    @warn "unknown tone `#{$tone}` in color";
+    @return null;
+  }
+  @warn "unknown color `#{$color}` in palette";
+  @return null;
+}
