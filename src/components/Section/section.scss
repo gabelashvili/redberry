@@ -1,0 +1,20 @@
+@import '.../../../../assets/scss/colors';
+@import '.../../../../assets/scss/breakpoints';
+
+.section {
+  overflow: auto;
+  background: linear-gradient(90deg, #2b303a 0%, #3f4756 100%);
+  color: color(common, white);
+  gap: 2.25rem;
+  padding: 2.25rem;
+  display: grid;
+  grid-auto-flow: row;
+  @include lg() {
+    padding: 4.25rem;
+    grid-auto-flow: column;
+  }
+  @include xl() {
+    padding: 4.25rem;
+    gap: 6rem;
+  }
+}
