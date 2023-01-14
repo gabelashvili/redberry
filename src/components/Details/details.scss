@@ -9,12 +9,10 @@
     font-size: 2rem;
     text-align: center;
     color: color(common, white);
-    font-family: 'Sora', sans-serif;
     margin-bottom: 1.25rem;
   }
   &__desc {
     font-size: 1.125rem;
-    font-family: 'Sora', sans-serif;
     line-height: 1.5;
     & span {
       color: color(common, dangerous);
@@ -44,7 +42,6 @@
   }
   &__list-item {
     font-size: 14px;
-    font-family: 'Sora', sans-serif;
     list-style: none;
     position: relative;
     &:not(.wrapper)::before {

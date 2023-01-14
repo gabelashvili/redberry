@@ -1,4 +1,18 @@
+@import '.../../../../assets/scss/colors';
+@import '.../../../../assets/scss/breakpoints';
+
 .calculator {
-  width: 20rem;
-  background-color: red;
+  box-sizing: border-box;
+  width: 320px;
+  background-color: color(common, white);
+  clip-path: polygon(10% 0, 90% 0, 100% 4%, 100% 96%, 90% 100%, 10% 100%, 0 96%, 0 4%);
+  padding: 5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: color(common, primary);
+  }
 }
