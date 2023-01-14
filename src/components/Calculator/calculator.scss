@@ -3,7 +3,10 @@
 
 .calculator {
   box-sizing: border-box;
-  width: 320px;
+  margin: auto;
+  height: 100%;
+  max-width: 500px;
+  width: 100%;
   background-color: color(common, white);
   clip-path: polygon(10% 0, 90% 0, 100% 4%, 100% 96%, 90% 100%, 10% 100%, 0 96%, 0 4%);
   padding: 5rem 1.25rem;
@@ -14,5 +17,77 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: color(common, primary);
+    justify-content: center;
+    align-items: center;
+  }
+  &__details {
+    display: flex;
+    padding: 1.25rem 0px;
+    gap: 1.25rem;
+    position: relative;
+    align-items: flex-start;
+    &::before {
+      content: ' ';
+      position: absolute;
+      background-color: color(common, secondary-light);
+      width: 100%;
+      height: 2px;
+      top: 0;
+    }
+    &::after {
+      content: ' ';
+      position: absolute;
+      background-color: color(common, secondary-light);
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+    }
+  }
+  &__details-wrapper {
+    display: flex;
+    flex-direction: column;
+    color: color(common, primary);
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+    position: relative;
+  }
+  &__details-title {
+    font-size: 0.875rem;
+    text-align: center;
+    & b {
+      font-weight: 700;
+    }
+  }
+  &__details-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-top: 10px;
+    text-align: center;
+  }
+  &__details-desc {
+    color: color(common, secondary);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  &__total {
+    display: flex;
+    flex-direction: column;
+    color: color(common, primary);
+    text-align: center;
+  }
+  &__total-title {
+    font-size: 0.875rem;
+    color: color(common, primary);
+    margin-bottom: 0.625rem;
+  }
+  &__total-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  @include lg() {
+    & {
+      width: 350px;
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { isNumber } from '../../helpers/helpers';
+import Button from '../Button/Button';
 import Checkbox from '../Checkbox/Checkbox';
 import TextField from '../TextField/TextField';
 import './calculator.scss';
@@ -38,6 +39,25 @@ const Calculator = () => {
         value={values.tubercolosis}
         handleChange={(val) => setValues({ ...values, tubercolosis: val })}
       />
+      <Button handleClick={() => console.log('ae')}>Calculate</Button>
+      <div className="calculator__details">
+        <div className="calculator__details-wrapper">
+          <p className="calculator__details-title">The employer compensates</p>
+          <b>4 days</b>
+          <p className="calculator__details-value">112,00€</p>
+          <p className="calculator__details-desc">Daily allowance 28,00 €</p>
+        </div>
+        <div className="calculator__details-wrapper">
+          <p className="calculator__details-title">Health Insurance compensates</p>
+          <b>0 days</b>
+          <p className="calculator__details-value">112,00€</p>
+          <p className="calculator__details-desc">Daily allowance 28,00 €</p>
+        </div>
+      </div>
+      <div className="calculator__total">
+        <p className="calculator__total-title">Compensation total for 7 days (net)</p>
+        <p className="calculator__total-value">112,00€</p>
+      </div>
     </div>
   );
 };

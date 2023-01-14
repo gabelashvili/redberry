@@ -1,0 +1,15 @@
+@import '.../../../../assets/scss/colors';
+
+.button {
+  background: linear-gradient(90deg, #911812 0%, #e1261c 100%);
+  border-radius: 30px;
+  color: color(common, white);
+  padding: 20px 40px;
+  width: fit-content;
+  font-size: 1.125rem;
+  font-weight: 700;
+  outline: none;
+  border: 0;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
