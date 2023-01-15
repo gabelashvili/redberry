@@ -32,11 +32,21 @@ const Calculator = () => {
     days: '',
     tubercolosis: false,
   });
+  const [total, setTotal] = useState({
+    amount: 0,
+    days: 0,
+  });
   const compensation = (values.avgIncome * 70) / 100 || 0;
-
   const employerCompensation = parseInt(calculateEmployerCompensatesDays(values.days) * compensation, 10).toFixed(2);
   const insuranceCompensation = (calculateInsuranceCompensatesDays(values.days, values.tubercolosis) * compensation).toFixed(2);
-  const totalCompensation = (Number(employerCompensation) + Number(insuranceCompensation)).toFixed(2);
+
+  const handleCalculate = () => {
+    const totalCompensation = (Number(employerCompensation) + Number(insuranceCompensation)).toFixed(2);
+    setTotal({
+      amount: totalCompensation,
+      days: calculateEmployerCompensatesDays(values.days) + calculateInsuranceCompensatesDays(values.days, values.tubercolosis),
+    });
+  };
 
   const handleChange = (field, value) => {
     if (value === '') {
@@ -66,7 +76,7 @@ const Calculator = () => {
         value={values.tubercolosis}
         handleChange={() => setValues({ ...values, tubercolosis: !values.tubercolosis })}
       />
-      <Button handleClick={() => console.log('ae')}>Calculate</Button>
+      <Button handleClick={handleCalculate}>Calculate</Button>
       <div className="calculator__details">
         <div className="calculator__details-wrapper">
           <p className="calculator__details-title">The employer compensates</p>
@@ -82,8 +92,8 @@ const Calculator = () => {
         </div>
       </div>
       <div className="calculator__total">
-        <p className="calculator__total-title">Compensation total for 7 days (net)</p>
-        <p className="calculator__total-value">{totalCompensation}€</p>
+        <p className="calculator__total-title">Compensation total for {total.days} days (net)</p>
+        <p className="calculator__total-value">{total.amount}€</p>
       </div>
     </div>
   );
