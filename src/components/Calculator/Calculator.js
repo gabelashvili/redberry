@@ -5,20 +5,26 @@ import Checkbox from '../Checkbox/Checkbox';
 import TextField from '../TextField/TextField';
 import './calculator.scss';
 
+const EMPLOYER_START_COMPENSATION_FROM = 4;
+const EMPLOYER_END_COMPENSATION_TO = 8;
+const INSURANCE_START_COMPENSATION_FROM = 9;
+const INSURANCE_END_COMPENSATION_TO = 182;
+const INSURANCE_TUBERCULOSIS_ADDED_DAY = 58;
+
 const calculateEmployerCompensatesDays = (days) => {
-  if (days > 8) {
+  if (days > EMPLOYER_END_COMPENSATION_TO) {
     return 5;
-  } else if (days >= 4 && days <= 8) {
+  } else if (days >= EMPLOYER_START_COMPENSATION_FROM && days <= EMPLOYER_END_COMPENSATION_TO) {
     return days - 3;
   }
   return 0;
 };
 
 const calculateInsuranceCompensatesDays = (days, tubercolosis) => {
-  const maxInsuranceEvent = tubercolosis ? 240 : 182;
+  const maxInsuranceEvent = INSURANCE_END_COMPENSATION_TO + (tubercolosis && INSURANCE_TUBERCULOSIS_ADDED_DAY);
   let val = 0;
-  if (days > 8) {
-    val = days - 8;
+  if (days >= INSURANCE_START_COMPENSATION_FROM) {
+    val = days - (INSURANCE_START_COMPENSATION_FROM - 1);
   }
   if (val > maxInsuranceEvent) {
     val = maxInsuranceEvent;
